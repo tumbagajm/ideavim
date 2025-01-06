@@ -1,0 +1,16 @@
+inoremap jk <Esc>
+let mapleader =" "
+nnoremap <silent> <leader>e :action ToggleProjectView<CR>
+nnoremap <silent> <leader>p :action ProjectView<CR>
+nnoremap <silent> <leader>w :close<CR>
+
+" Split the editor vertically (side by side) using Leader + v
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>s :vsplit<CR>
+
+" Navigate left and right between splits using Ctrl + h and Ctrl + l
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+
+" Map Leader + fg to trigger autoformat (Reformat Code)
+nnoremap <silent> <leader>gf :action ReformatCode<CR>
