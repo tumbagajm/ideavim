@@ -1,16 +1,73 @@
+" Exit insert mode by typing 'jk'
 inoremap jk <Esc>
-let mapleader =" "
+
+" Set the leader key to space
+let mapleader = " "
+
+" Comment and uncomment
+nnoremap gcc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+
+" Toggle the project view with Leader + e
 nnoremap <silent> <leader>e :action ToggleProjectView<CR>
+
+" Open the project view with Leader + p
 nnoremap <silent> <leader>p :action ProjectView<CR>
+
+" Close the current window with Leader + w
 nnoremap <silent> <leader>w :close<CR>
 
-" Split the editor vertically (side by side) using Leader + v
-nnoremap <silent> <leader>v :vsplit<CR>
-nnoremap <silent> <leader>s :vsplit<CR>
+" Split the editor vertically with Leader + v
+nnoremap <silent> <leader>v :action SplitVertically<CR>
 
-" Navigate left and right between splits using Ctrl + h and Ctrl + l
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
+" Navigate left and right between tabs (splits) using Ctrl + h and Ctrl + l
+nnoremap <silent> <C-h> :action SelectPreviousTab<CR>
+nnoremap <silent> <C-l> :action SelectNextTab<CR>
 
-" Map Leader + fg to trigger autoformat (Reformat Code)
+" Trigger autoformat (Reformat Code) with Leader + gf
 nnoremap <silent> <leader>gf :action ReformatCode<CR>
+
+" Search settings
+set ignorecase    " Case-insensitive searching
+set hlsearch      " Highlight search matches
+nnoremap <Esc> :nohlsearch<cr> 
+set incsearch
+
+" Split Settings 
+" Split vertically with <Leader>v
+nnoremap <leader>wv :action SplitVertically<CR>
+
+" Split horizontally with <Leader>h
+nnoremap <leader>wh :action SplitHorizontally<CR>
+
+" Navigate between splits with <Leader>w
+nnoremap <leader>ww :action GotoNextSplitter<CR>
+
+" Unsplit all splits with <Leader>a
+nnoremap <leader>wa :action UnsplitAll<CR>
+
+" Search Settings
+" Search for Class
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>ss <Action>(GotoSym)
+map <leader>sa <Action>(GotoAction)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gt <Action>(GotoTest)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gl <Action>(GotoLine)
+
+
+"Source code Navigation
+map <leader>ug <Action>(FindUsages)
+map <leader>uu <Action>(ShowUsages)
+map <leader>vs <Action>(ViewSource)
+map <leader>im <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinition)
+map <leader>ti <Action>(ExpressionTypeInfo)
+map <leader>sh <Action>(ShowHoverInfo)
+map <leader>oo <Action>(FileStructurePopup)
+
+" Search and Replace
